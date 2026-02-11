@@ -41,7 +41,7 @@ class WAYS(unittest.TestCase):
 
 		#实例化微信通知
 		self.wx=weixin.WeChat()
-		self.wx.send_text('每日点检正在执行中...请执行完后查看截图\n图片依次为：智库、智见、达示、LaneAi、一汽大众、上汽集团、上汽通用、广汽本田、DMS、威尔森官网、GN、长安海外配置、汽车流通协会、终端支持查询')
+		self.wx.send_text('每日点检正在执行中...请执行完后查看截图\n图片依次为：系统1、系统2、系统3、系统4、系统5、系统6、系统7、系统8、系统9、系统10、系统11、系统12、系统13、系统14')
 		#验证码识别登录重试次数、等待时间
 		self.max_retries=5
 		self.retry_delay =2
@@ -58,7 +58,7 @@ class WAYS(unittest.TestCase):
 
 	def test_iways_login(self):
 		'''
-		智库-登录
+		系统1-登录
 		'''
 		username=os.getenv("IWAYS_USERNAME")
 		password=os.getenv('IWAYS_PASSWORD')
@@ -86,7 +86,7 @@ class WAYS(unittest.TestCase):
 		if 'itways_test' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('智库登录异常，请查看图片核查')
+			self.wx.send_text('系统1登录异常，请查看图片核查')
 		self.assertIn('itways_test',words)	
 		# self.driver.get(url+"/sales-volume-analysis/wholeMarket")
 		# self.takephono('iways','sales')
@@ -97,7 +97,7 @@ class WAYS(unittest.TestCase):
 
 	def test_iev_login(self):
 		'''
-		智见-登录
+		系统2-登录
 		'''
 		username=os.getenv("IEV_USERNAME")
 		password=os.getenv('IEV_PASSWORD')
@@ -126,12 +126,12 @@ class WAYS(unittest.TestCase):
 		if 'IT' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('智见登录异常，请查看图片核查')
+			self.wx.send_text('系统2登录异常，请查看图片核查')
 		self.assertIn('IT',words)	
 
 	def test_daas_login(self):
 		'''
-		达示-登录
+		系统3-登录
 		'''
 		username=os.getenv("DAAS_USERNAME")
 		password=os.getenv('DAAS_PASSWORD')
@@ -156,12 +156,12 @@ class WAYS(unittest.TestCase):
 		if 'lizouhuan' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('达示登录异常，请查看图片核查')
+			self.wx.send_text('系统3登录异常，请查看图片核查')
 		self.assertIn('lizouhuan',words)	
 
 	def test_ai_login(self):
 		'''
-		LANEAI-登录
+		系统4-登录
 		'''
 		username=os.getenv("AI_USERNAME")
 		password=os.getenv('AI_PASSWORD')
@@ -187,7 +187,7 @@ class WAYS(unittest.TestCase):
 		if '产品介绍' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('LANGAI登录异常，请查看图片核查')
+			self.wx.send_text('系统4登录异常，请查看图片核查')
 		self.assertIn('产品介绍',words)	
 		# self.find_element('XPATH','//*[@id="chat-input"]').send_keys('今天天气怎么样？')
 		# time.sleep(1)
@@ -198,7 +198,7 @@ class WAYS(unittest.TestCase):
 
 	def test_faw_login(self):
 		'''
-		一汽大众-登录
+		系统5-登录
 		'''
 		username=os.getenv("FAW_USERNAME")
 		password=os.getenv('FAW_PASSWORD')
@@ -215,12 +215,12 @@ class WAYS(unittest.TestCase):
 		if '价量分析系统' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('一汽大众登录异常，请查看图片核查')
+			self.wx.send_text('系统5登录异常，请查看图片核查')
 		self.assertIn('价量分析系统',words)	
 
 	def test_saic_login(self):
 		'''
-		上汽集团-登录
+		系统6-登录
 		'''
 		username=os.getenv("SAIC_USERNAME")
 		password=os.getenv('SAIC_PASSWORD')
@@ -230,7 +230,7 @@ class WAYS(unittest.TestCase):
 		#####################登录##############################
 		time.sleep(1)
 		for attempt in range(1, self.max_retries + 1): #登录重试
-			print(f"【上汽集团】🔄 第 {attempt} 次登录尝试...")
+			print(f"【系统6】🔄 第 {attempt} 次登录尝试...")
 			try:
 				element=self.find_element('ID',"yanZhengMa")
 				img_bytes = element.screenshot_as_png
@@ -260,7 +260,7 @@ class WAYS(unittest.TestCase):
 					time.sleep(self.retry_delay+attempt)
 					continue
 			except Exception as e:
-				print(f"【上汽集团】⚠️ 登录过程异常: {str(e)}")
+				print(f"【系统6】⚠️ 登录过程异常: {str(e)}")
 				if attempt == self.max_retries:
 					raise
 		self.takephono('saic','login')
@@ -269,12 +269,12 @@ class WAYS(unittest.TestCase):
 		if '2023' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('上汽集团登录异常，请查看图片核查')
+			self.wx.send_text('系统6登录异常，请查看图片核查')
 		self.assertIn('2023',words)	
 
 	def test_sgm_login(self):
 		'''
-		SGM-登录
+		系统7-登录
 		'''
 		username=os.getenv("SGM_USERNAME")
 		password=os.getenv('SGM_PASSWORD')
@@ -300,12 +300,12 @@ class WAYS(unittest.TestCase):
 		if 'mos1.sgms.saic-gm.com' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('上汽通用登录异常，请查看图片核查')
+			self.wx.send_text('系统7登录异常，请查看图片核查')
 		self.assertIn('mos1.sgms.saic-gm.com',words)	
 
 	def test_honda_login(self):
 		'''
-		广汽本田-登录
+		系统8-登录
 		'''
 		username=os.getenv("HONDA_USERNAME")
 		password=os.getenv('HONDA_PASSWORD')
@@ -316,7 +316,7 @@ class WAYS(unittest.TestCase):
 		#####################登录##############################
 		time.sleep(1)
 		for attempt in range(1, self.max_retries + 1): #登录重试
-			print(f"【广汽本田】🔄 第 {attempt} 次登录尝试...")
+			print(f"【系统8】🔄 第 {attempt} 次登录尝试...")
 			try:
 				element=self.find_element('ID',"s-canvas")
 				img_bytes = element.screenshot_as_png
@@ -346,7 +346,7 @@ class WAYS(unittest.TestCase):
 					time.sleep(self.retry_delay+attempt)
 					continue
 			except Exception as e:
-				print(f"【广汽本田】⚠️ 登录过程异常: {str(e)}")
+				print(f"【系统8】⚠️ 登录过程异常: {str(e)}")
 				if attempt == self.max_retries:
 					raise
 
@@ -356,13 +356,13 @@ class WAYS(unittest.TestCase):
 		if 'miap.ghac.cn/manf' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('广汽本田登录异常，请查看图片核查')
+			self.wx.send_text('系统8登录异常，请查看图片核查')
 		self.assertIn('miap.ghac.cn/manf',words)	
 
 
 	def test_dms_login(self):
 		'''
-		DMS-登录
+		系统9-登录
 		'''
 		username=os.getenv("DMS_USERNAME")
 		password=os.getenv('DMS_PASSWORD')
@@ -381,29 +381,29 @@ class WAYS(unittest.TestCase):
 		if 'dlrstest' in words:
 			print('登录正常')
 		else:
-			self.wx.send_text('DMS登录异常，请查看图片核查')
+			self.wx.send_text('系统9登录异常，请查看图片核查')
 		self.assertIn('dlrstest',words)	
 
 	def test_no_login_url(self):
 		'''
 		不用登录系统
 		'''
-		#智库
+		#系统10
 		self.driver.get(os.getenv('WAYS_URL'))
 		self.driver.set_window_size(1920,1080) #浏览器分辨率设置
 		time.sleep(1)
 		self.takephono('ways','dashboard')
-		#GN
+		#系统11
 		self.driver.get(os.getenv('GN_URL'))
 		time.sleep(6)
 		self.takephono('gn','dashboard')
-		#海外配置
+		#系统12
 		self.driver.get(os.getenv('GN_OVERSEAS_URL'))
 		self.takephono('gn_overseas','dashboard')
-		#汽车流通协会
+		#系统13
 		self.driver.get(os.getenv('CADA_URL'))
 		self.takephono('cada','dashboard')
-		#汽车流通协会
+		#系统14
 		self.driver.get(os.getenv('TERMINAL_URL'))
 		self.takephono('terminal','dashboard')
 
@@ -445,20 +445,20 @@ class WAYS(unittest.TestCase):
 	@classmethod
 	def tearDownClass(self): #在所有用例执行后，执行一次
 		iways_pic=[
-			['智库登录截图','./ScreenShot/iways_login.png'],
-			['智见登录截图','./ScreenShot/iev_login.png'],
-			['达示登录截图','./ScreenShot/daas_login.png'],
-			['LaneAi登录截图','./ScreenShot/ai_login.png'],
-			['一汽大众登录截图','./ScreenShot/faw_login.png'],
-			['上汽集团登录截图','./ScreenShot/saic_login.png'],
-			['上汽通用登录截图','./ScreenShot/sgm_login.png'],
-			['广汽本田登录截图','./ScreenShot/honda_login.png'],
-			['DMS登录截图','./ScreenShot/dms_login.png'],
-			['威尔森官网截图','./ScreenShot/ways_dashboard.png'],
-			['GN截图','./ScreenShot/gn_dashboard.png'],
-			['长安海外配置截图','./ScreenShot/gn_overseas_dashboard.png'],
-			['汽车流通协会截图','./ScreenShot/cada_dashboard.png'],
-			['终端支持查询截图','./ScreenShot/terminal_dashboard.png'],
+			['系统1登录截图','./ScreenShot/iways_login.png'],
+			['系统2登录截图','./ScreenShot/iev_login.png'],
+			['系统3登录截图','./ScreenShot/daas_login.png'],
+			['系统4登录截图','./ScreenShot/ai_login.png'],
+			['系统5登录截图','./ScreenShot/faw_login.png'],
+			['系统6登录截图','./ScreenShot/saic_login.png'],
+			['系统7登录截图','./ScreenShot/sgm_login.png'],
+			['系统8登录截图','./ScreenShot/honda_login.png'],
+			['系统9登录截图','./ScreenShot/dms_login.png'],
+			['系统10截图','./ScreenShot/ways_dashboard.png'],
+			['系统11截图','./ScreenShot/gn_dashboard.png'],
+			['系统12截图','./ScreenShot/gn_overseas_dashboard.png'],
+			['系统13截图','./ScreenShot/cada_dashboard.png'],
+			['系统14截图','./ScreenShot/terminal_dashboard.png'],
 		]
 		# 发送核查图片到微信
 		for pic in iways_pic:

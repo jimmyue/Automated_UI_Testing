@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 '''
 Created on 2026年2月11日
-@author: yuejing
+@author: jimmy
 '''
 import os
 import requests
